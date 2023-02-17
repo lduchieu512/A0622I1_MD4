@@ -5,7 +5,7 @@
     <title>Blog List</title>
 </head>
 <body>
-<a th:href="/create">Create Blog</a>
+<a href="/create">Create Blog</a>
 <div th:if="${msg}">
     <h3 th:text="${msg}" class="text-danger"></h3>
     <br>
@@ -14,17 +14,31 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>image</th>
         <th>Describe</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
 
     <tr th:each="blog,iterStat:${blogList}">
+        <td th:text="${blog.id}"></td>
         <td th:text="${blog.name}"></td>
         <td th:text="${blog.image}"></td>
         <td th:text="${blog.describe}"></td>
-        <td th:href="@{/edit/{id}(id=${blog.id})}"></td>
-        <td th:href="@{/delete/{id}(id=${blog.id})}"></td>
+        <td >
+            <button>
+                <a th:href="@{/edit/{id}(id=${blog.id})}">Edit</a>
+            </button>
+        </td>
+        <td>
+            <button>
+            <a th:href="@{/delete/{id}(id=${blog.id})}">Delete</a>
+            </button>
+        </td>
+        <td th:href="@{/view/{id}(id=${blog.id})}">
+            View
+        </td>
     </tr>
 </table>
 </body>

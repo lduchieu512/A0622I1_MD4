@@ -51,7 +51,15 @@ public class BlogController {
     public String doEdit(@ModelAttribute("blog") Blog blog,Model model,RedirectAttributes redirectAttributes){
         iBlogService.create(blog);
         redirectAttributes.addFlashAttribute("msg","Edit thành công");
-        return"redirect:list";
+        return"redirect:/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String doDelete(@PathVariable("id")Integer id, RedirectAttributes redirectAttributes){
+        iBlogService.delete(id);
+        redirectAttributes.addFlashAttribute("msg","Xoá thành công");
+        return"redirect:/list";
+
     }
 
 

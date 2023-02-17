@@ -5,15 +5,15 @@
     <title>Create Blog</title>
 </head>
 <body>
-
-
-<form action="/create" method="post" th:object="${blog}"></form>
-Name : <input th:field="*{name}"><br>
-Image : <input th:field="*{image}"><br>
-Description : <input th:field="*{describe}"><br>
 <p>
     <a th:href="@{/list}">Back to list blog</a>
 </p>
+<form action="/create" method="post" th:object="${blog}">
+Name : <input th:field="*{name}"><br>
+Image : <input th:field="*{image}"><br>
+Description : <input th:field="*{describe}"><br>
+
 <button type="submit">Create</button>
+</form>
 </body>
 </html>
