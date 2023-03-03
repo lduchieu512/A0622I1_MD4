@@ -28,6 +28,6 @@ public class Blog {
 
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JoinColumn(name = "category_id",nullable = false, referencedColumnName = "id")
     private Category category;
 }
